@@ -1,0 +1,20 @@
+/* Select all spans that are immediate children of buttons */
+button > span {
+    font-size: 2.5rem;
+}
+
+.hour-column {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.event-column {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+.save-column {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
