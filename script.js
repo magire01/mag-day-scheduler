@@ -5,7 +5,6 @@ $(document).ready(function() {
 
     function rowEvent() {
         for(var i = 8; i <= 18; i++) {
-            console.log(i);
             
             var hourColumnCard = $("<div>");
             hourColumnCard.addClass("col-md-2", "card");
@@ -15,6 +14,7 @@ $(document).ready(function() {
 
             var saveColumnInput = $("<input>");
             saveColumnInput.addClass("col-md-8");
+            saveColumnInput.attr("type", "text")
             saveColumnInput.attr("id", "event-input" + i)
             hourColumn.append(saveColumnInput);
 
@@ -24,34 +24,30 @@ $(document).ready(function() {
             saveColumnButton.attr("value", i);
             saveColumnButton.text("Save");
             hourColumn.append(saveColumnButton);
-            
-            // var saveButton = $("#save-button8");
-            hourColumn.delegate("#save-button" + i, "click", function() {
-            console.log("test");
-            
-            function saveButtonClick() {
-                hourColumn.delegate("#save-button" + i, "click", function() {
-                console.log("test");
-                })
-            }
-            
-            saveButtonClick();
-            })
-        }
-        
+     
+        }    
     }
 
-    function saveButtonClick() {
-        hourColumn.delegate("#save-button" + i, "click", function() {
-        console.log("test");
+    function saveButton() {
+        hourColumn.delegate("#save-button8", "click", function() {
+            var eventInput8 = $(":text");
+            localStorage.setItem("eventInput8", eventInput8.val());
+        })
+        hourColumn.delegate("#save-button9", "click", function() {
+            console.log("test9");
         })
     }
-
-
+    // function saveButton() {
+    //     for(var j = 8; j <= 18; j++) {
+    //         return j;
+    //     }
+    //     hourColumn.delegate("#save-button" + j, "click", function() {
+    //         console.log("test");
+    //     })
+    // }
+    
     rowEvent();
-    
-
-    
+    saveButton();
 
     
 });
