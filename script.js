@@ -32,29 +32,61 @@ $(document).ready(function() {
 
     function saveButton() {
         hourColumn.delegate("#save-button8", "click", function() {
-            var eventInput8 = $(":text");
+            var eventInput8 = $("#event-form8 :text");
             localStorage.setItem("eventInput8", eventInput8.val());
             $("#event-form8").text(localStorage.getItem("eventInput8")); 
         })
         hourColumn.delegate("#save-button9", "click", function() {
-            var eventInput9 = $(":text");
+            var eventInput9 = $("#event-form9 :text");
             localStorage.setItem("eventInput9", eventInput9.val());
             $("#event-form9").text(localStorage.getItem("eventInput9")); 
         })
         hourColumn.delegate("#save-button10", "click", function() {
-            var eventInput10 = $(":text");
+            var eventInput10 = $("#event-form10 :text");
             localStorage.setItem("eventInput10", eventInput10.val());
             $("#event-form10").text(localStorage.getItem("eventInput10")); 
         })
+        hourColumn.delegate("#save-button11", "click", function() {
+            var eventInput11 = $("#event-form11 :text");
+            localStorage.setItem("eventInput11", eventInput11.val());
+            $("#event-form11").text(localStorage.getItem("eventInput11")); 
+        })
+        hourColumn.delegate("#save-button12", "click", function() {
+            var eventInput12 = $("#event-form12 :text");
+            localStorage.setItem("eventInput12", eventInput12.val());
+            $("#event-form12").text(localStorage.getItem("eventInput12")); 
+        })
+        hourColumn.delegate("#save-button13", "click", function() {
+            var eventInput13 = $("#event-form13 :text");
+            localStorage.setItem("eventInput13", eventInput13.val());
+            $("#event-form13").text(localStorage.getItem("eventInput13")); 
+        })
+        hourColumn.delegate("#save-button14", "click", function() {
+            var eventInput14 = $("#event-form14 :text");
+            localStorage.setItem("eventInput14", eventInput14.val());
+            $("#event-form14").text(localStorage.getItem("eventInput14")); 
+        })
+        hourColumn.delegate("#save-button15", "click", function() {
+            var eventInput15 = $("#event-form15 :text");
+            localStorage.setItem("eventInput15", eventInput15.val());
+            $("#event-form15").text(localStorage.getItem("eventInput15")); 
+        })
+        hourColumn.delegate("#save-button16", "click", function() {
+            var eventInput16 = $("#event-form16 :text");
+            localStorage.setItem("eventInput16", eventInput16.val());
+            $("#event-form16").text(localStorage.getItem("eventInput16")); 
+        })
+        hourColumn.delegate("#save-button17", "click", function() {
+            var eventInput17 = $("#event-form17 :text");
+            localStorage.setItem("eventInput17", eventInput17.val());
+            $("#event-form17").text(localStorage.getItem("eventInput17")); 
+        })
+        hourColumn.delegate("#save-button18", "click", function() {
+            var eventInput18 = $("#event-form18 :text");
+            localStorage.setItem("eventInput18", eventInput18.val());
+            $("#event-form18").text(localStorage.getItem("eventInput18")); 
+        })
     }
-    // function saveButton() {
-    //     for(var j = 8; j <= 18; j++) {
-    //         return j;
-    //     }
-    //     hourColumn.delegate("#save-button" + j, "click", function() {
-    //         console.log("test");
-    //     })
-    // }
     
     rowEvent();
     saveButton();
