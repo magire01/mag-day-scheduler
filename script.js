@@ -11,12 +11,14 @@ $(document).ready(function() {
             hourColumnCard.attr("id", "hour-card")
             hourColumnCard.text(i + ":00");
             hourColumn.append(hourColumnCard);
-
+            var saveColumnForm = $("<form>");
+            saveColumnForm.addClass("col-md-8");
+            saveColumnForm.attr("id", "event-form"+ i);
             var saveColumnInput = $("<input>");
-            saveColumnInput.addClass("col-md-8");
             saveColumnInput.attr("type", "text")
             saveColumnInput.attr("id", "event-input" + i)
-            hourColumn.append(saveColumnInput);
+            hourColumn.append(saveColumnForm);
+            saveColumnInput.appendTo(saveColumnForm);
 
             var saveColumnButton = $("<button>");
             saveColumnButton.addClass("col-md-2");
@@ -32,9 +34,17 @@ $(document).ready(function() {
         hourColumn.delegate("#save-button8", "click", function() {
             var eventInput8 = $(":text");
             localStorage.setItem("eventInput8", eventInput8.val());
+            $("#event-form8").text(localStorage.getItem("eventInput8")); 
         })
         hourColumn.delegate("#save-button9", "click", function() {
-            console.log("test9");
+            var eventInput9 = $(":text");
+            localStorage.setItem("eventInput9", eventInput9.val());
+            $("#event-form9").text(localStorage.getItem("eventInput9")); 
+        })
+        hourColumn.delegate("#save-button10", "click", function() {
+            var eventInput10 = $(":text");
+            localStorage.setItem("eventInput10", eventInput10.val());
+            $("#event-form10").text(localStorage.getItem("eventInput10")); 
         })
     }
     // function saveButton() {
