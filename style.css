@@ -3,18 +3,21 @@ button > span {
     font-size: 2.5rem;
 }
 
-.hour-column {
-    margin-top: 10px;
-    margin-bottom: 10px;
+.card {
+    background-color: white;
+    color: black;
 }
 
-.event-column {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 200px;
+.button {
+    background-color: blue;
+    color: white;
 }
 
-.save-column {
-    margin-top: 10px;
-    margin-bottom: 10px;
+.form{
+    background-color: lightgray;
+}
+
+.input {
+    background-color: lightgrey;
+    width: 100%;
 }
