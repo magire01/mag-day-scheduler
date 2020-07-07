@@ -12,7 +12,7 @@ $(document).ready(function() {
     var hourColumn = $("#row-event");
 
     function rowEvent() {
-        for(var i = 0; i <= 18; i++) {
+        for(var i = 8; i <= 18; i++) {
         
             var hourColumnCard = $("<div>");
             hourColumnCard.addClass("col-md-2 card");
