@@ -2,35 +2,43 @@ $(document).ready(function() {
     //Generate current time
     // var date = new Date();
     var date = moment().format('dddd');
-    var hour = moment().format('HH');
+    var hourTime = moment().format('HH');
     var minutes = moment().format('mm');
-    $("#currentDay").text(date + "  " + hour + ":" + minutes);
+    $("#currentDay").text(date + "  " + hourTime + ":" + minutes);
+
+    console.log("hour test: " + hourTime);
 
     // Generate Hours
     var hourColumn = $("#row-event");
 
     function rowEvent() {
-        for(var i = 8; i <= 18; i++) {
+        for(var i = 0; i <= 18; i++) {
         
             var hourColumnCard = $("<div>");
             hourColumnCard.addClass("col-md-2 card");
             hourColumnCard.attr("id", "hour-card");
             hourColumnCard.text(i + ":00");
             hourColumn.append(hourColumnCard);
+
             var saveColumnForm = $("<form>");
-            saveColumnForm.addClass("col-md-8 form");
+            saveColumnForm.addClass("col-md-8 formPast" + i);
             saveColumnForm.attr("id", "event-form"+ i);
             var saveColumnInput = $("<input>");
-            saveColumnInput.addClass("col-md-8 input");
+            saveColumnInput.addClass("col-md-8 inputPast");
             saveColumnInput.attr("type", "text")
-            saveColumnInput.attr("id", "event-input" + i)
+            saveColumnInput.attr("id", "event-input" + i);
+
+            if(hourTime == i) {
+                $(saveColumnInput).addClass("inputCurrent");
+            } else if (hourTime < i) {
+                $(saveColumnInput).addClass("inputFuture");
+            }
 
             var storageSpace = localStorage.getItem("eventInput" + i);
             console.log(storageSpace);
             $(saveColumnInput).val(storageSpace);  
             saveColumnInput.appendTo(saveColumnForm);
             hourColumn.append(saveColumnForm);
-            
 
             var saveColumnButton = $("<button>");
             saveColumnButton.addClass("col-md-2 button");
@@ -40,9 +48,7 @@ $(document).ready(function() {
             hourColumn.append(saveColumnButton);
 
             saveButton(); 
-            
         }  
-    
     }
 
     function saveButton() {
@@ -101,9 +107,10 @@ $(document).ready(function() {
             $("#event-form18 :text").text(localStorage.getItem("eventInput18")); 
         })
     }
+
+
     
     rowEvent();
-    
     
     
 });

@@ -13,11 +13,29 @@ button > span {
     color: white;
 }
 
-.form{
-    background-color: lightgray;
+.formPast {
+    background-color: lightgrey;
 }
 
-.input {
+.formCurrent {
+    background-color: lightcoral;
+}
+
+.formFuture {
+    background-color: lime;
+}
+
+.inputPast {
     background-color: lightgrey;
+    width: 100%;
+}
+
+.inputCurrent {
+    background-color: lightcoral;
+    width: 100%;
+}
+
+.inputFuture {
+    background-color: lime;
     width: 100%;
 }
