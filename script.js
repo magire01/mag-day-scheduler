@@ -1,17 +1,20 @@
 $(document).ready(function() {
     //Generate current time
-    var date = new Date();
-    $("#currentDay").text(date);
+    // var date = new Date();
+    var date = moment().format('dddd');
+    var hour = moment().format('HH');
+    var minutes = moment().format('mm');
+    $("#currentDay").text(date + "  " + hour + ":" + minutes);
 
     // Generate Hours
     var hourColumn = $("#row-event");
 
     function rowEvent() {
         for(var i = 8; i <= 18; i++) {
-            
+        
             var hourColumnCard = $("<div>");
             hourColumnCard.addClass("col-md-2 card");
-            hourColumnCard.attr("id", "hour-card")
+            hourColumnCard.attr("id", "hour-card");
             hourColumnCard.text(i + ":00");
             hourColumn.append(hourColumnCard);
             var saveColumnForm = $("<form>");
@@ -21,8 +24,13 @@ $(document).ready(function() {
             saveColumnInput.addClass("col-md-8 input");
             saveColumnInput.attr("type", "text")
             saveColumnInput.attr("id", "event-input" + i)
-            hourColumn.append(saveColumnForm);
+
+            var storageSpace = localStorage.getItem("eventInput" + i);
+            console.log(storageSpace);
+            $(saveColumnInput).val(storageSpace);  
             saveColumnInput.appendTo(saveColumnForm);
+            hourColumn.append(saveColumnForm);
+            
 
             var saveColumnButton = $("<button>");
             saveColumnButton.addClass("col-md-2 button");
@@ -31,17 +39,16 @@ $(document).ready(function() {
             saveColumnButton.text("Save");
             hourColumn.append(saveColumnButton);
 
-            saveButton();  
+            saveButton(); 
             
         }  
-        
+    
     }
 
     function saveButton() {
         hourColumn.delegate("#save-button8", "click", function() {
             var eventInput8 = $("#event-form8 :text");
-            localStorage.setItem("eventInput8", eventInput8.val());
-            $("#event-form8 :text").text(localStorage.getItem("eventInput8")); 
+            localStorage.setItem("eventInput8", eventInput8.val()); 
         })
         hourColumn.delegate("#save-button9", "click", function() {
             var eventInput9 = $("#event-form9 :text");
@@ -95,7 +102,12 @@ $(document).ready(function() {
         })
     }
     
+    function printStorage () {
+        $("#event-form8 :text").text(localStorage.getItem("eventInput8"));
+
+    }
     rowEvent();
+    printStorage();
     
-   
+    
 });
