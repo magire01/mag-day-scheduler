@@ -102,12 +102,8 @@ $(document).ready(function() {
         })
     }
     
-    function printStorage () {
-        $("#event-form8 :text").text(localStorage.getItem("eventInput8"));
-
-    }
     rowEvent();
-    printStorage();
+    
     
     
 });
